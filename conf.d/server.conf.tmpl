@@ -18,9 +18,8 @@ server {
     location /nginx_status {
         # Enable Nginx stats
         stub_status on;
-        # Only allow access from your IP e.g 1.1.1.1 or localhost #
+        # Only allow access from localhost
         allow 127.0.0.1;
-        allow 1.1.1.1
         #Other request should be denied
         deny all;
     }
