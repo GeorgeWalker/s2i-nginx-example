@@ -23,6 +23,10 @@ server {
         root   /opt/app-root/src/html;
     }
     
+    location /proxy {
+        proxy_pass http://openshift-jee-sample
+    }
+    
     location /nginx_status {
         # Enable Nginx stats
         stub_status on;
