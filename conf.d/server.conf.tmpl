@@ -24,7 +24,9 @@ server {
     }
     
     location /proxy {
-        proxy_pass http://nodejs-example:8080;
+        # proxy all traffic to this URL, 
+        # note this strips out the /proxy path suffix
+        proxy_pass http://nodejs-example:8080/;
     }
     
     location /nginx_status {
