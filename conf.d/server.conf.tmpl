@@ -27,7 +27,7 @@ server {
         # proxy all traffic to this URL, 
         # note the trailing slash strips out the /proxy path on 
         # the request to the upstream server
-        proxy_pass http://nodejs-example:8080/;
+        proxy_pass http://openshift-jee-sample:8080/;
     }
     
     location /nginx_status {
