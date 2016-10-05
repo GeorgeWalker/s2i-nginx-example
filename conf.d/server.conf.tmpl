@@ -17,6 +17,13 @@ server {
         proxy_pass http://openshift-jee-sample:8080/;
     }
     
+    # For loaderio to verify domain
+    location /loaderio- {
+         root   /opt/app-root/src/html;
+         index  index.html index.htm;
+    }
+    
+    # For status of ngnix service
     location /nginx_status {
         # Enable Nginx stats
         stub_status on;
