@@ -26,6 +26,12 @@ server {
          index  index.html index.htm;
     }
     
+    # For load testing static file serving off Ngnix
+    location /static {
+         root   /opt/app-root/src/html;
+         index  index.html index.htm;
+    }
+    
     # For status of ngnix service
     location /nginx_status {
         # Enable Nginx stats
