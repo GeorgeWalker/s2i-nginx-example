@@ -1,3 +1,5 @@
+proxy_cache_path $NGINX_VAR_DIR levels=1:2 keys_zone=globalcache:10m max_size=10g inactive=60m use_temp_path=off;
+
 server {
     listen       8080;
     server_name  _;
@@ -15,6 +17,9 @@ server {
         # note the trailing slash strips out the /proxy path on 
         # the request to the upstream server
         proxy_pass http://openshift-jee-sample:8080/;
+        
+        # its helpful to cache these responses
+        proxy_cache globalcache;
     }
     
     # For loaderio to verify domain
