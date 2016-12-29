@@ -15,7 +15,10 @@ server {
     location / {			
 	
 		# check for the SiteMinder header.
-		if ($http_sm_authdirname = "") { return 403 "Access denied"; }		
+		if ($http_sm_authdirname == "") { 
+		add_header Content-Type text/html;
+		return 200 "Access denied"; 
+		}		
 	
         # proxy all traffic to this URL, 
         # note the trailing slash strips out the /proxy path on 
